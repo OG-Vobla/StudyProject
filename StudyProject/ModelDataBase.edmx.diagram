@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e846a2513c1742b3b9a0b13ea8a4096b" Name="Diagram1">
+        <EntityTypeShape EntityType="StudyProjectDbModel.Category" Width="1.5" PointX="3.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudyProjectDbModel.CompletedQuestion" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudyProjectDbModel.CompletedQuizes" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudyProjectDbModel.Question" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudyProjectDbModel.QuestionImage" Width="1.5" PointX="10.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudyProjectDbModel.Quiz" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudyProjectDbModel.QuizImage" Width="1.5" PointX="8.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudyProjectDbModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudyProjectDbModel.User" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <AssociationConnector Association="StudyProjectDbModel.FK_Quiz_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="StudyProjectDbModel.FK_CompletedQuestion_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="StudyProjectDbModel.FK_CompletedQuestion_User" ManuallyRouted="false" />
+        <AssociationConnector Association="StudyProjectDbModel.FK_CompletedQuizes_Quiz" ManuallyRouted="false" />
+        <AssociationConnector Association="StudyProjectDbModel.FK_CompletedQuizes_User" ManuallyRouted="false" />
+        <AssociationConnector Association="StudyProjectDbModel.FK_Question_Quiz" ManuallyRouted="false" />
+        <AssociationConnector Association="StudyProjectDbModel.FK_QuestionImage_Question" ManuallyRouted="false" />
+        <AssociationConnector Association="StudyProjectDbModel.FK_Quiz_User" ManuallyRouted="false" />
+        <AssociationConnector Association="StudyProjectDbModel.FK_QuizImage_Quiz" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

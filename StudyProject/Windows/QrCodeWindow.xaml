@@ -1,0 +1,14 @@
+﻿<Window x:Class="StudyProject.Windows.QrCodeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudyProject.Windows"
+        mc:Ignorable="d"
+        Title="QrCodeWindow" Height="301" Width="318">
+    <Grid  Background="#141412">
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image x:Name="qrCodeImage" Width="200" Height="200"></Image>
+        </StackPanel>
+    </Grid>
+</Window>
