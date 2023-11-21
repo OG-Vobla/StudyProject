@@ -23,5 +23,41 @@ namespace StudyProject.Windows
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (LName.Text != "" && FName.Text != "" && Login.Text != "" && Password.Password != "")
+            {
+                if (Password.Password == RepPassword.Password)
+                {
+                    if (ConectionClass.DataBase.User.Where(x => x.Login == Login.Text).FirstOrDefault() == null)
+                    {
+                        if (ConectionClass.DataBase.User.Where(x => x.LName == LName.Text && x.FName == FName.Text).FirstOrDefault() == null)
+                        {
+                            ConectionClass.DataBase.User.Add(new User() {Login = Login.Text, FName = FName.Text, LName = LName.Text,  Password = Password.Password, IsTeacher = 0});
+                            ConectionClass.DataBase.SaveChanges();
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Пользователь с таким именем и фамилией уже есть.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Пользователь с таким логином уже есть.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Пароли не совпадают.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Не все поля заполнены.");
+            }
+
+        }
     }
 }

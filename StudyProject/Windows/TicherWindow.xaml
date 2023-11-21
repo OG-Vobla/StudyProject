@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudyProject.Windows"
         mc:Ignorable="d"
-        Title="TicherWindow" Height="450" Width="800">
+        Title="TicherWindow" Height="750" Width="800">
     <Window.Resources>
         <Style x:Key="TabControlWithUnderLineStyle" TargetType="{x:Type TabControl}">
             <Setter Property="Padding" Value="2"/>
@@ -193,12 +193,13 @@
 
                                         <StackPanel Orientation="Horizontal">
                                             <Image Source="{Binding ImageSource}"  Width="350" Height="350" />
-                                            <StackPanel Orientation="Vertical" Margin="20"  Width="286" Height="244">
+                                            <StackPanel Orientation="Vertical" Margin="20"  Width="286" Height="274">
                                                 <TextBlock   FontSize="30" Text="{Binding Name}" Height="48" Width="286" />
                                                 <TextBlock FontSize="20" Text="{Binding QuizCategory}"  Width="286" FontWeight="Bold"/>
                                                 <TextBlock FontSize="20" Text="{Binding Mistake}"  Width="286" FontWeight="Bold"/>
                                                 <Button Click="Button_Click_1" Content="Показать Qr-Code" Margin="0 20 0 0" FontSize="15" Background="#007ACC" Foreground="White" Height="30" />
                                                 <Button Click="Button_Click" Content="Удалить викторину" Margin="0 20 0 0" FontSize="15" Background="#007ACC" Foreground="White" Height="30" />
+                                                <Button Click="Button_Click_2" Content="Просмотреть учеников" Margin="0 20 0 0" FontSize="15" Background="#007ACC" Foreground="White" Height="30" />
 
                                             </StackPanel>
                                         </StackPanel>
@@ -207,6 +208,36 @@
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
+                </TabItem>
+                <TabItem Style="{StaticResource TabItemExWithUnderLineStyle}" Cursor="Hand" Header= "Профиль" Height="38" Width="102" >
+                    <Grid VerticalAlignment="Center">
+                        <Border Background="#222" Opacity="0.85" CornerRadius="10" Width="400" HorizontalAlignment="Center">
+                            <StackPanel Margin="20">
+                                <TextBlock Text="Профиль" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
+                                <StackPanel>
+                                    <Label Content="Логин" Foreground="White" FontSize="16"/>
+                                    <TextBox x:Name="Login" FontSize="16" Height="40" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="Имя" Foreground="White" FontSize="16"/>
+                                    <TextBox x:Name="FName" FontSize="16" Height="40" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="Фамилия" Foreground="White" FontSize="16"/>
+                                    <TextBox x:Name="LName" FontSize="16" Height="40" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="Пароль" Foreground="White" FontSize="16"/>
+                                    <PasswordBox x:Name="Password" FontSize="16" Height="40" />
+                                </StackPanel>
+                                <StackPanel>
+                                    <Label Content="Повтор пароля" Foreground="White" FontSize="16"/>
+                                    <PasswordBox x:Name="RepPassword" FontSize="16" Height="40" />
+                                </StackPanel>
+                                <Button Content="Сохранить изменения" Margin="0 20 0 0" FontSize="18" Background="#007ACC" Foreground="White" Height="40" Click="Button_Click_3" />
+                            </StackPanel>
+                        </Border>
+                    </Grid>
                 </TabItem>
             </TabControl>
         </Grid>

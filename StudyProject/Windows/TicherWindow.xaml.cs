@@ -41,7 +41,11 @@ namespace StudyProject.Windows
             {
                 Category.Items.Add(item.Name);
             }
-           
+           Login.Text = ConectionClass.user.Login;
+           FName.Text = ConectionClass.user.FName;
+           LName.Text = ConectionClass.user.LName;
+            Password.Password = ConectionClass.user.Password;
+            RepPassword.Password = ConectionClass.user.Password;
         }
         private void LoadImagesFromDatabase()
         {
@@ -155,6 +159,7 @@ namespace StudyProject.Windows
                     }
                     ConectionClass.DataBase.Question.Remove(item2);
                 }
+
                 var quizz = ConectionClass.DataBase.CompletedQuizes.Where(x => x.Quiz_id == corectQuiz.Id_Quiz).FirstOrDefault();
                 if (quizz!= null)
                 {
@@ -178,6 +183,57 @@ namespace StudyProject.Windows
             Button button = (Button)sender;
             ImageItemViewModel item = (ImageItemViewModel)button.DataContext;
             ConectionClass.corectQuiz = ConectionClass.DataBase.Quiz.Where(x => x.Name == item.Name).FirstOrDefault();
+            QrCodeWindow qrCodeWindow = new QrCodeWindow(ConectionClass.corectQuiz.Id_Quiz.ToString());
+            qrCodeWindow.ShowDialog();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            ImageItemViewModel item = (ImageItemViewModel)button.DataContext;
+            ConectionClass.corectQuiz = ConectionClass.DataBase.Quiz.Where(x => x.Name == item.Name).FirstOrDefault();
+            StudentsWindow studentsWindow = new StudentsWindow();
+            studentsWindow.ShowDialog();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            var us = ConectionClass.user;
+            if (LName.Text != "" && FName.Text != "" && Login.Text != "" && Password.Password != "")
+            {
+                if (Password.Password == RepPassword.Password)
+                {
+                    if (ConectionClass.DataBase.User.Where(x => x.Login == Login.Text && x.Login != us.Login).FirstOrDefault() == null)
+                    {
+                        if (ConectionClass.DataBase.User.Where(x => x.LName == LName.Text && x.FName == FName.Text && us.LName != x.LName && us.FName != x.FName).FirstOrDefault() == null)
+                        {
+                            us.LName = LName.Text;
+                            us.FName = FName.Text;
+                            us.Login = Login.Text;
+                            us.Password = Password.Password;
+                            ConectionClass.DataBase.SaveChanges();
+                            ConectionClass.user = ConectionClass.DataBase.User.Where(x => x.Login == Login.Text).FirstOrDefault();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Пользователь с таким именем и фамилией уже есть.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Пользователь с таким логином уже есть.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Пароли не совпадают.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Не все поля заполнены.");
+            }
+
         }
     }
 }

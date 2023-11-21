@@ -1,0 +1,52 @@
+﻿<Window x:Class="StudyProject.Windows.StudentsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudyProject.Windows"
+        mc:Ignorable="d"
+        Title="StudentsWindow" Height="450" Width="800">
+    
+    <Grid>
+        <DataGrid AutoGenerateColumns="False"  x:Name="CompleteQuizsTable"  Background="#141412" >
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="#252525"/>
+                    <Setter Property="Foreground" Value="#DEDEDE"/>
+                </Style>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="Background" Value="#252525"/>
+                    <Setter Property="Foreground" Value="#DEDEDE"/>
+                </Style>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#333333"/>
+                    <Setter Property="Foreground" Value="#DEDEDE"/>
+                    <Setter Property="BorderBrush" Value="#555555"/>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Имя">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock   FontSize="30" Text="{Binding FName}"  Width="86" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn  Header="Фамилия">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock  FontSize="30" Text="{Binding LName}"  Width="86"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn  Header="Ответы">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock   FontSize="30" Text="{Binding Mistake}"  Width="386"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

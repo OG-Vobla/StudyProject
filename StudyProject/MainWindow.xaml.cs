@@ -28,7 +28,7 @@ namespace StudyProject
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            UserWindow regWindow = new UserWindow();
+            RegWindow regWindow = new RegWindow();
             regWindow.ShowDialog();
         }
 

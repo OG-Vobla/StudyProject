@@ -16,29 +16,25 @@
                     <TextBlock Text="Регистрация" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center"/>
                     <StackPanel>
                         <Label Content="Логин" Foreground="White" FontSize="16"/>
-                        <TextBox FontSize="16" Height="40" />
+                        <TextBox x:Name="Login" FontSize="16" Height="40" />
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Имя" Foreground="White" FontSize="16"/>
-                        <TextBox FontSize="16" Height="40" />
+                        <TextBox x:Name="FName" FontSize="16" Height="40" />
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Фамилия" Foreground="White" FontSize="16"/>
-                        <TextBox FontSize="16" Height="40" />
-                    </StackPanel>
-                    <StackPanel>
-                        <Label Content="Номер телефона" Foreground="White" FontSize="16"/>
-                        <TextBox FontSize="16" Height="40" />
+                        <TextBox x:Name="LName" FontSize="16" Height="40" />
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Пароль" Foreground="White" FontSize="16"/>
-                        <PasswordBox FontSize="16" Height="40" />
+                        <PasswordBox x:Name="Password" FontSize="16" Height="40" />
                     </StackPanel>
                     <StackPanel>
                         <Label Content="Повтор пароля" Foreground="White" FontSize="16"/>
-                        <PasswordBox FontSize="16" Height="40" />
+                        <PasswordBox x:Name="RepPassword" FontSize="16" Height="40" />
                     </StackPanel>
-                    <Button Content="Регистрация" Margin="0 20 0 0" FontSize="18" Background="#007ACC" Foreground="White" Height="40" />
+                    <Button Content="Регистрация" Margin="0 20 0 0" FontSize="18" Background="#007ACC" Foreground="White" Height="40" Click="Button_Click" />
                 </StackPanel>
             </Border>
         </Grid>

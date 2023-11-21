@@ -24,7 +24,7 @@ namespace StudyProject.Windows
         public QrCodeWindow(string str)
         {
             InitializeComponent();
-            string soucer_xl = ""; //внутри кавычек надо вставить ссылку
+            string soucer_xl = str; //внутри кавычек надо вставить ссылку
             // Создание переменной библиотеки QRCoder
             QRCoder.QRCodeGenerator qr = new QRCoder.QRCodeGenerator();
             // Присваеваем значиения
@@ -42,7 +42,7 @@ namespace StudyProject.Windows
                 bitmapimage.StreamSource = memory;
                 bitmapimage.CacheOption = BitmapCacheOption.OnLoad;
                 bitmapimage.EndInit();
-                imageQr.Source = bitmapimage;
+                qrCodeImage.Source = bitmapimage;
             }
         }
 
