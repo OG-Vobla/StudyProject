@@ -158,7 +158,7 @@
                                     <Setter Property="BorderBrush" Value="#555555"/>
                                 </Style>
                             </DataGrid.Resources>
-                            <DataGrid.Columns>
+                            <DataGrid.Columns> 
                                 <DataGridTemplateColumn >
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
