@@ -28,14 +28,14 @@
                 <DataGridTemplateColumn Header="Имя">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock   FontSize="30" Text="{Binding FName}"  Width="86" />
+                            <TextBlock   FontSize="30" Text="{Binding FName}"  Width="186" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn  Header="Фамилия">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock  FontSize="30" Text="{Binding LName}"  Width="86"/>
+                            <TextBlock  FontSize="30" Text="{Binding LName}"  Width="186"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

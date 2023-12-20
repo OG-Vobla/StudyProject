@@ -155,6 +155,11 @@ namespace StudyProject.Windows
                 ConectionClass.MistakeCount = 0;
                 QuestionWindow questionWindow   = new QuestionWindow();
                 questionWindow.ShowDialog();
+                ImageItems = new ObservableCollection<ImageItemViewModel>();
+                ImageItems1 = new ObservableCollection<ImageItemViewModel>();
+                LoadImagesFromDatabase();
+                QuizsTable.ItemsSource = ImageItems;
+                CompleteQuizsTable.ItemsSource = ImageItems1;
             }
         }
 
@@ -182,6 +187,11 @@ namespace StudyProject.Windows
                         ConectionClass.MistakeCount = 0;
                         QuestionWindow questionWindow = new QuestionWindow();
                         questionWindow.ShowDialog();
+                        ImageItems = new ObservableCollection<ImageItemViewModel>();
+                        ImageItems1 = new ObservableCollection<ImageItemViewModel>();
+                        LoadImagesFromDatabase();
+                        QuizsTable.ItemsSource = ImageItems;
+                        CompleteQuizsTable.ItemsSource = ImageItems1;
                     }
                 }
                 else

@@ -162,7 +162,6 @@
                                 <DataGridTemplateColumn >
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            
                                             <StackPanel Orientation="Horizontal">
                                                 <Image Source="{Binding ImageSource}"  Width="350" Height="350" />
                                                 <StackPanel Orientation="Vertical" Margin="20"  Width="286" Height="144">

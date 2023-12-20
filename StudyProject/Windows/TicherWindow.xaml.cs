@@ -45,7 +45,6 @@ namespace StudyProject.Windows
            FName.Text = ConectionClass.user.FName;
            LName.Text = ConectionClass.user.LName;
             Password.Password = ConectionClass.user.Password;
-            RepPassword.Password = ConectionClass.user.Password;
         }
         private void LoadImagesFromDatabase()
         {
@@ -93,35 +92,41 @@ namespace StudyProject.Windows
                 int quesCount = 0;
                 if (Int32.TryParse(QuesCount.Text,out quesCount))
                 {
-                    if (ConectionClass.DataBase.Quiz.Where(x=> x.Name == NameText.Text).FirstOrDefault() != null)
-                    {
-                        MessageBox.Show("Викторина с таким названием уже существует.");
-                    }
-                    else
+                    if (quesCount != 0)
                     {
 
-                        ConfirmWindow confirmWindow = new ConfirmWindow("После согласия начнется ввод вопросов.");
-                        confirmWindow.ShowDialog();
-                        if (confirmWindow.DialogResult)
+                        if (ConectionClass.DataBase.Quiz.Where(x=> x.Name == NameText.Text).FirstOrDefault() != null)
                         {
-                            byte[] imageData;
-                            using (MemoryStream stream = new MemoryStream())
-                            {
-                                BitmapEncoder encoder = new PngBitmapEncoder();
-                                encoder.Frames.Add(BitmapFrame.Create((BitmapSource)selectedImage.Source));
-                                encoder.Save(stream);
-                                imageData = stream.ToArray();
-                            }
-                            ConectionClass.DataBase.Quiz.Add(new Quiz() { Name = NameText.Text, Category_id = ConectionClass.DataBase.Category.Where(x => x.Name == Category.Text).FirstOrDefault().Id_Category, User_id = ConectionClass.user.Id_User });
-                            ConectionClass.DataBase.SaveChanges();
-                            ConectionClass.quizNum = ConectionClass.DataBase.Quiz.Where(x=> x.Name == NameText.Text).FirstOrDefault().Id_Quiz;
-                            ConectionClass.DataBase.QuizImage.Add(new QuizImage() { Quiz_id = ConectionClass.quizNum, QuizImageSrc = imageData });
-                            ConectionClass.DataBase.SaveChanges();
-                            ConectionClass.quesCount = quesCount;
-                            QuestionCreateWindow questionWindow = new QuestionCreateWindow();
-                            questionWindow.ShowDialog();
+                            MessageBox.Show("Викторина с таким названием уже существует.");
                         }
-                    }
+                        else
+                        {
+                            ConfirmWindow confirmWindow = new ConfirmWindow("После согласия начнется ввод вопросов.");
+                            confirmWindow.ShowDialog();
+                            if (confirmWindow.DialogResult)
+                            {
+                                byte[] imageData;
+                                using (MemoryStream stream = new MemoryStream())
+                                {
+                                    BitmapEncoder encoder = new PngBitmapEncoder();
+                                    encoder.Frames.Add(BitmapFrame.Create((BitmapSource)selectedImage.Source));
+                                    encoder.Save(stream);
+                                    imageData = stream.ToArray();
+                                }
+                                ConectionClass.DataBase.Quiz.Add(new Quiz() { Name = NameText.Text, Category_id = ConectionClass.DataBase.Category.Where(x => x.Name == Category.Text).FirstOrDefault().Id_Category, User_id = ConectionClass.user.Id_User });
+                                ConectionClass.DataBase.SaveChanges();
+                                ConectionClass.quizNum = ConectionClass.DataBase.Quiz.Where(x=> x.Name == NameText.Text).FirstOrDefault().Id_Quiz;
+                                ConectionClass.DataBase.QuizImage.Add(new QuizImage() { Quiz_id = ConectionClass.quizNum, QuizImageSrc = imageData });
+                                ConectionClass.DataBase.SaveChanges();
+                                ConectionClass.quesCount = quesCount;
+                                QuestionCreateWindow questionWindow = new QuestionCreateWindow();
+                                questionWindow.ShowDialog();
+                                ImageItems = new ObservableCollection<ImageItemViewModel>();
+                                LoadImagesFromDatabase();
+                                CompleteQuizsTable.ItemsSource = ImageItems;
+                            }
+                        }
+                    }   
                 }
                 else
                 {
