@@ -142,7 +142,7 @@
             <TabControl Style="{StaticResource TabControlWithUnderLineStyle}" Foreground="Black" Background="Transparent" BorderBrush="Transparent" BorderThickness="0">
                 <TabItem Style="{StaticResource TabItemExWithUnderLineStyle}" Cursor="Hand" Header= "Все викторины" Height="38" Width="91">
                     <Grid Background="#33ffffff">
-                        <DataGrid AutoGenerateColumns="False"  x:Name="QuizsTable"  Background="#141412" >
+                        <DataGrid CanUserAddRows="False" AutoGenerateColumns="False"  x:Name="QuizsTable"  Background="#141412" >
                             <DataGrid.Resources>
                                 <Style TargetType="DataGridRow">
                                     <Setter Property="Background" Value="#252525"/>
@@ -193,7 +193,7 @@
                     </Grid>
                 </TabItem>
                 <TabItem Style="{StaticResource TabItemExWithUnderLineStyle}" Cursor="Hand" Header= "Пройденные викторины" Height="38" Width="152" >
-                    <DataGrid AutoGenerateColumns="False"  x:Name="CompleteQuizsTable"  Background="#141412" >
+                    <DataGrid CanUserAddRows="False" AutoGenerateColumns="False"  x:Name="CompleteQuizsTable"  Background="#141412" >
                         <DataGrid.Resources>
                             <Style TargetType="DataGridRow">
                                 <Setter Property="Background" Value="#252525"/>

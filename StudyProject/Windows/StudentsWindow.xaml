@@ -8,7 +8,7 @@
         Title="StudentsWindow" Height="450" Width="800">
     
     <Grid>
-        <DataGrid AutoGenerateColumns="False"  x:Name="CompleteQuizsTable"  Background="#141412" >
+        <DataGrid CanUserAddRows="False" AutoGenerateColumns="False"  x:Name="CompleteQuizsTable"  Background="#141412" >
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <Setter Property="Background" Value="#252525"/>

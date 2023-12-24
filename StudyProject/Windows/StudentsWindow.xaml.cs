@@ -44,7 +44,7 @@ namespace StudyProject.Windows
             foreach (var i in ConectionClass.DataBase.CompletedQuizes.Where(x => x.Quiz_id == e.Id_Quiz))
             {
                 var h = i.User_id;
-                foreach (var a in ConectionClass.DataBase.Quiz.Where(x => ConectionClass.DataBase.CompletedQuizes.Where(y => y.Quiz_id == x.Id_Quiz && y.User_id == h).FirstOrDefault() != null))
+                foreach (var a in ConectionClass.DataBase.Quiz.Where(x => ConectionClass.DataBase.CompletedQuizes.Where(y => y.Quiz_id == x.Id_Quiz && y.Quiz_id == e.Id_Quiz && y.User_id == h).FirstOrDefault() != null))
                 {
                     var AllQues = ConectionClass.DataBase.Question.Where(l => l.Quiz_id == a.Id_Quiz);
                     List<CompletedQuestion> corectQues = new List<CompletedQuestion>();

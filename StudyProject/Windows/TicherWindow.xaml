@@ -170,7 +170,7 @@
                     </Grid>
                 </TabItem>
                 <TabItem Style="{StaticResource TabItemExWithUnderLineStyle}" Cursor="Hand" Header= "Статистика" Height="38" Width="102" >
-                    <DataGrid AutoGenerateColumns="False"  x:Name="CompleteQuizsTable"  Background="#141412" >
+                    <DataGrid  CanUserAddRows="False" AutoGenerateColumns="False"  x:Name="CompleteQuizsTable"  Background="#141412" >
                         <DataGrid.Resources>
                             <Style TargetType="DataGridRow">
                                 <Setter Property="Background" Value="#252525"/>
